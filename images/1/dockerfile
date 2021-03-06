@@ -1,0 +1,15 @@
+#FROM build from base image
+FROM centos
+#RUN to run any command
+#RUN yum update && yum install httpd -y
+RUN yum install httpd -y
+#ADD copy file from CWD
+ADD . /usr/local/
+
+#RUN mkdir -p /usr/local
+#WORKDIR /root/image/1
+
+#COPY apache2 /usr/local/apache2/
+#ENTRYPOINT the first command that runs when the container starts
+ENTRYPOINT apachectl -D FOREGROUND
+
