@@ -1,5 +1,5 @@
 #FROM build from base image
-FROM centos
+FROM alpine
 #RUN to run any command
 #RUN yum update && yum install httpd -y
 RUN yum install httpd -y
