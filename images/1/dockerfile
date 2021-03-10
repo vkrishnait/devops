@@ -1,10 +1,16 @@
 #FROM build from base image
-FROM alpine
+FROM ubuntu
 #RUN to run any command
 #RUN yum update && yum install httpd -y
-RUN yum install httpd -y
+ARG DEBIAN_FRONTEND=noninerative
+RUN apt-get update && apt-get install apache2 -y 
 #ADD copy file from CWD
-ADD . /usr/local/
+ADD test.tar.gz /usr/alpine
+ADD https://github.com/vkrishnait/devops /usr/alpine
+
+#for alpine commands
+#RUN apk add --no-cache mysql-client
+#ENTRYPOINT ["mysql"]
 
 #RUN mkdir -p /usr/local
 #WORKDIR /root/image/1
